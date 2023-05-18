@@ -79,11 +79,13 @@ public class Main {
 				System.out.println("Irreparable function break.");
 			}
 		} else if (method == 2) {
-			double res = TrapezoidMethod.trapezoidMethod(fVector.get(choice), left, right, 4);
-			System.out.println(res);
+			Utils.countRunge(fVector.get(choice), TrapezoidMethod::trapezoidMethod,
+					Utils::findDiscontinuities, left, right, eps, r1, 1, 0);
+			System.out.println(r1.fLeftRight);
 		} else if (method == 3) {
-			double res = SimpsonMethod.simpsonMethod(fVector.get(choice), left, right, 4);
-			System.out.println(res);
+			Utils.countRunge(fVector.get(choice), SimpsonMethod::simpsonMethod,
+					Utils::findDiscontinuities, left, right, eps, r1, 1, 0);
+			System.out.println(r1.fLeftRight);
 		}
 	}
 }
